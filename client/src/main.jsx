@@ -120,7 +120,9 @@ function App() {
 
         <h1>The Redditrepreneur Brief Generator</h1>
         <p className="sub">
-          Get a custom research brief for your brand, category, competitors and online communities.
+         <p>
+  Generate a custom Community Intelligence Brief for your brand, competitors, audience and goals in under two minutes.
+</p>
         </p>
 
         {!brief && (
