@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import path from "path";
-import nodemailer from "nodemailer";
+import { Resend } from "resend";
 import { fileURLToPath } from "url";
 
 const app = express();
@@ -20,20 +20,12 @@ function required(value, name) {
 }
 
 async function sendLeadEmail(payload, brief) {
-  if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS || !process.env.LEAD_TO_EMAIL) {
-    console.log("Email not configured. Skipping lead email.");
+  if (!process.env.RESEND_API_KEY || !process.env.LEAD_TO_EMAIL || !process.env.LEAD_FROM_EMAIL) {
+    console.log("Resend not configured. Skipping lead email.");
     return;
   }
 
-  const transporter = nodemailer.createTransport({
-    host: process.env.SMTP_HOST,
-    port: Number(process.env.SMTP_PORT || 587),
-    secure: process.env.SMTP_SECURE === "true",
-    auth: {
-      user: process.env.SMTP_USER,
-      pass: process.env.SMTP_PASS
-    }
-  });
+  const resend = new Resend(process.env.RESEND_API_KEY);
 
   const subject = `New Community Intelligence Brief Lead: ${payload.company || payload.brandName}`;
 
@@ -65,15 +57,18 @@ GENERATED BRIEF
 ${brief}
 `;
 
-  await transporter.sendMail({
-    from: process.env.LEAD_FROM_EMAIL || process.env.SMTP_USER,
-    to: process.env.LEAD_TO_EMAIL,
+  const { error } = await resend.emails.send({
+    from: process.env.LEAD_FROM_EMAIL,
+    to: [process.env.LEAD_TO_EMAIL],
     replyTo: payload.email,
     subject,
     text
   });
-}
 
+  if (error) {
+    console.error("Resend email error:", error);
+  }
+}
 app.post("/api/generate-brief", async (req, res) => {
   try {
     const payload = req.body;
