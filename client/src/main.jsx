@@ -118,7 +118,7 @@ function App() {
           <p className="step">Step {brief ? "Complete" : `${step} of 4`}</p>
         </div>
 
-        <h1>Community Intelligence Brief Generator</h1>
+        <h1>The Redditrepreneur Brief Generator</h1>
         <p className="sub">
           Get a custom research brief for your brand, category, competitors and online communities.
         </p>
