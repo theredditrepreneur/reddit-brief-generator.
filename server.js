@@ -125,6 +125,7 @@ Tone:
 - Do not sound like generic marketing software
 
 Important:
+Do not end with “Ready when you are” or address the user by name in the final sentence.
 Give enough value for the user to understand what should be investigated.
 Do not complete the full audit.
 Position the Community Intelligence Audit as the natural next step.
