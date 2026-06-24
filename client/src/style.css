@@ -193,3 +193,35 @@ button:disabled {
     grid-template-columns: 1fr;
   }
 }
+
+.auditPitch {
+  margin-top: 24px;
+  padding: 24px;
+  border-radius: 20px;
+  background: #f8fafc;
+  border: 2px solid #e2e8f0;
+}
+
+.auditPitch h3 {
+  margin-top: 0;
+  font-size: 28px;
+  color: #061b3f;
+}
+
+.auditPitch p {
+  font-size: 17px;
+  line-height: 1.6;
+  color: #334155;
+}
+
+.auditPitch ul {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 0;
+}
+
+.auditPitch li {
+  padding: 8px 0;
+  font-weight: 700;
+  color: #061b3f;
+}
