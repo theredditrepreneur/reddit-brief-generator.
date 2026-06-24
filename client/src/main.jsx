@@ -230,7 +230,7 @@ function App() {
               <button onClick={() => navigator.clipboard.writeText(brief)}>Copy Brief</button>
               <button className="secondary" onClick={reset}>New Brief</button>
               <a className="cta" href="https://theredditrepreneur.gumroad.com/l/community-intelligence-audit" target="_blank" rel="noreferrer">
-                Book a Community Intelligence Audit
+                Turn This Brief Into A Full Audit
               </a>
             </div>
           </div>
