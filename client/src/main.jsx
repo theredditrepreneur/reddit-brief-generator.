@@ -225,6 +225,23 @@ function App() {
           <div className="result">
             <h2>Your Community Intelligence Brief</h2>
             <pre>{brief}</pre>
+            
+<div className="auditPitch">
+  <h3>Ready To Go Deeper?</h3>
+
+  <p>
+    Your brief identifies what should be investigated.
+    The Community Intelligence Audit does the investigation for you.
+  </p>
+
+  <ul>
+    <li>✓ Community Mapping</li>
+    <li>✓ Sentiment Analysis</li>
+    <li>✓ Competitor Intelligence</li>
+    <li>✓ Opportunity Discovery</li>
+    <li>✓ Strategic Recommendations</li>
+  </ul>
+</div>
 
             <div className="resultButtons">
               <button onClick={() => navigator.clipboard.writeText(brief)}>Copy Brief</button>
